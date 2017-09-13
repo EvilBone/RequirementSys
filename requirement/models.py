@@ -2,6 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Requirement(models.Model):
+    req_uccode = models.CharField(max_length=100,verbose_name='用例编号',unique=True)
     req_summary = models.CharField(max_length=500,verbose_name='需求概要')
     req_des = models.CharField(max_length=1000,verbose_name='需求描述')
     req_raise_date = models.DateField(verbose_name='提出时间')
@@ -19,7 +20,7 @@ class Requirement(models.Model):
 
     class Meta:
         verbose_name = "需求"
-        verbose_name_plural = "需求s"
+        verbose_name_plural = "需求管理"
 
     def toJSON(self):
         import json

@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+ {% extends 'base.html' %}
 {% block title %}需求列表{% endblock %}
 {% block content %}
     <div class="container-fluid" style="padding-top: 70px">
@@ -12,6 +12,7 @@
                         <thead style="background-color:#EEE">
                         <tr>
                             <th data-field="id" data-sortable="false" data-formatter="cellvalue">序号</th>
+                            <th data-field="req_uccode" data-sortable="true" data-formatter="cellvalue">用例编号</th>
                             <th data-field="req_priority" data-sortable="true" data-formatter="cellvalue">优先级</th>
                             <th data-field="req_summary" data-formatter="summaryFormatter">需求概要</th>
                             <th data-field="req_des" data-formatter="cellvalue">需求描述</th>
@@ -35,7 +36,7 @@
                                 '</div>';
                         }
                         function summaryFormatter(value,row) {
-                            return '<div style="font-size:10pt">' +'<a href= '+ row.id +'>'+
+                            return '<div style="font-size:10pt">' +'<a href= reqdocs/'+ row.req_uccode +'>'+
                                 value + '</a>'+
                                 '</div>';
                         }
