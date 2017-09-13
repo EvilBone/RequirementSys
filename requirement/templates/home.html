@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block title %}需求列表{% endblock %}
+{% block content %}
+    <div class="container-fluid" style="padding-top: 70px">
+        <div class="row">
+            <div class="col-sm-12 col-sm-offset-0 col-md-12 col-md-offset-0 main">
+                <h1 class="page-header">需求列表</h1>
+                <div class="table-responsive">
+                    <table class="table table-no-bordered table-striped"
+                           data-toggle="table" data-url="{% url 'allreqs' %}"
+                           data-classes="table table-no-bordered table-striped">
+                        <thead style="background-color:#EEE">
+                        <tr>
+                            <th data-field="id" data-sortable="false" data-formatter="cellvalue">序号</th>
+                            <th data-field="req_priority" data-sortable="true" data-formatter="cellvalue">优先级</th>
+                            <th data-field="req_summary" data-formatter="summaryFormatter">需求概要</th>
+                            <th data-field="req_des" data-formatter="cellvalue">需求描述</th>
+                            <th data-field="req_raise_date" data-sortable="true" data-formatter="cellvalue">提出时间</th>
+                            <th data-field="req_raise_user" data-sortable="true" data-formatter="cellvalue">提出人</th>
+                            <th data-field="req_raise_dep" data-sortable="true" data-formatter="cellvalue">提出部门</th>
+                            <th data-field="req_expect_date" data-sortable="true" data-formatter="cellvalue">期望日期</th>
+                            <th data-field="req_doc_finish_date" data-sortable="true" data-formatter="cellvalue">文档完成时间</th>
+                            <th data-field="req_status" data-sortable="true" data-formatter="cellvalue">目前状态</th>
+                            <th data-field="req_developer" data-sortable="true" data-formatter="cellvalue">开发人员</th>
+                        </tr>
+                        </thead>
+                    </table>
+                    <script>
+                        function cellvalue(value) {
+                            if(value == null){
+                                value='—'
+                            }
+                            return '<div style="font-size:10pt">' +
+                                value + '</a>'+
+                                '</div>';
+                        }
+                        function summaryFormatter(value,row) {
+                            return '<div style="font-size:10pt">' +'<a href= '+ row.id +'>'+
+                                value + '</a>'+
+                                '</div>';
+                        }
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
